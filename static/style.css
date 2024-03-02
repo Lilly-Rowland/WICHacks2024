@@ -1,16 +1,56 @@
 body header {
-    background: url("./assets/backgroundGradient.jpg");
+    background: url("../assets/backgroundGradient.jpg");
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    margin:auto;
+    font-size: 40px;
+    text-align: center;
+}
+
+#learnMore {
+    border: none;
+    border-radius: 5px;
 }
 
 button {
     border-radius: 15%;
+    max-width: 100px;
 }
 
 nav ul li {
     display: inline;
+    margin: 5px;
+}
+
+nav ul li a {
+    text-decoration-line: none;
+    font-size: 20px;
+}
+nav {
     background-color: blueviolet;
+    margin:0px;
 }
 
 footer {
     background-color: blueviolet;
+}
+
+body {
+    margin:0px;
+    padding:0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.twoColumn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
