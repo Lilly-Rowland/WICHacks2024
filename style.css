@@ -1,0 +1,16 @@
+body header {
+    background: url("./assets/backgroundGradient.jpg");
+}
+
+button {
+    border-radius: 15%;
+}
+
+nav ul li {
+    display: inline;
+    background-color: blueviolet;
+}
+
+footer {
+    background-color: blueviolet;
+}
