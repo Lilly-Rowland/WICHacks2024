@@ -1,14 +1,19 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
+import sqlite3
 
 from degree_by_gender_analysis import graph_deg_by_gender
+
+conn = sqlite3.connect('survey_database.db')
+cursor = conn.cursor()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///survey_database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
 
 with app.app_context():
     meta = db.metadata
@@ -19,6 +24,7 @@ with app.app_context():
     for table in meta.tables.values():
         print("heyhey")
         print(table.name)
+    
 
 class Response(db.Model):
     __tablename__ = 'Response'
@@ -34,6 +40,7 @@ class Response(db.Model):
         return f'<Response {self.name}'
 
 with app.app_context():
+    db.Model.metadata.reflect(db.engine, extend_existing=True)
     db.create_all()
 
 @app.route('/')
@@ -72,6 +79,23 @@ def results():
     unique_names = len(set([response.name for response in responses]))
 
     return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age)
+
+    def __init__(self, id, created, name, age, feeback):
+        self.id = id
+        self.name = name
+        self.created = created
+        self.age = age
+        self.feedback = feedback
+
+with app.app_context():
+    # Query the Response table and print the results
+    responses = Response.query.all()
+    for response in responses:
+        cursor.execute("INSERT INTO Response (created, name, age, feedback) VALUES (?, ?, ?, ?)", (response.created, response.name, response.age, response.feedback))
+        #print(response.id, response.created, response.name, response.age, response.feedback)
+
+conn.commit()
+conn.close()
 
 if __name__ == "__main__":
     with app.app_context():
