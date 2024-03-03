@@ -22,19 +22,6 @@ header div p {
     font-size: 40px;
 }
 
-#learnMore {
-    border: none;
-    border-radius: 5px;
-    margin: auto;
-    background-color: #0D1B2A;
-    color: white;
-    font-size: 25px;
-}
-
-#learnMore:hover {
-    background-color: #1B263B;
-} 
-
 button {
     border-radius: 15%;
     max-width: 100px;
@@ -62,6 +49,13 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #DDA6B1;
+    color:#0D1b2a;
+    text-decoration-line: none;
+}
+
+.aboutPhoto {
+    max-height: 150px;
+    max-width: auto;
 }
 
 main {
