@@ -36,12 +36,56 @@
         <div>
             <h1>surveyyyy yaaaas</h1>
             <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
-            <label for = "name">Name</label>
-            <input type ="text" name = "name" required>
-
-            <label for="age">Age: </label>
-            <input type="number" name = "age" required>
-
+            
+            <label for="dropdown">What year are you?</label> 
+            <select year="year"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4+">4+</option> 
+            </select>
+            <br>
+            <label for="dropdown">What is your major?</label> 
+            <select major="major"> 
+                <option value="Computer Science">Computer Science</option> 
+                <option value="Cybersecurity">Cybersecurity</option> 
+                <option value="Game Design & Development">Game Design & Development</option> 
+                <option value="Software Engineering">Software Engineering</option> 
+                <option value="Engineering">Engineering</option>
+                <option value="Bioinformatics">Bioinformatics</option>
+                <option value="Computational Math">Computational Math</option>
+                <option value="Other">Other</option> 
+            </select>
+            <br>
+            <label for="dropdown">On a scale of 1-10 (1 being the least. 10 being most), how confident are you in your ability to achieve a career in STEM?</label> 
+            <select scale="scale"> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+                <option value="5">5</option> 
+                <option value="6">6</option> 
+                <option value="7">7</option> 
+                <option value="8">8</option> 
+                <option value="9">9</option> 
+                <option value="10">10</option>    
+            </select>
+            <br>
+            <label for="dropdown">Have you experienced imposter syndrome in relation to your gender identity and field of study?</label> 
+            <select imposter="imposter"> 
+                <option value="Yes">Yes</option> 
+                <option value="No">No</option> 
+            </select>
+            <br>
+            <label for="dropdown">Who do you feel most supported, specifically in relation to your career in STEM?</label> 
+            <select support="support"> 
+                <option value="Classmates">Classmates</option> 
+                <option value="Professors">Professors</option> 
+                <option value="Family">Family</option> 
+                <option value="Friends">Friends</option> 
+                <option value="Clubs">Clubs</option> 
+            </select>
+            <br>
             <label for="feedback">Feedback: </label>
             <textarea name = "feedback" required></textarea>
 

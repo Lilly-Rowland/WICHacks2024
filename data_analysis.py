@@ -78,7 +78,7 @@ def results():
     average_age = round(sum([response.age for response in responses])/total_responses, 1)
     unique_names = len(set([response.name for response in responses]))
 
-    return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age)
+    return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age, unique_names=unique_names)
 
     def __init__(self, id, created, name, age, feeback):
         self.id = id

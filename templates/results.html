@@ -9,6 +9,39 @@
 
   </head>
   <body>
+    <h1>results baybyyy</h1>
+    <div class = "dashboard">
+      <div class ="dashboard_item">
+        <h2>{{total_responses}}</h2>
+        <p>Total Responses</p>
+      </div>
+      <div class = "dashboard_item">
+        <h2>{{average_age}}</h2>
+        <p>Average Age</p>
+      </div>
+        <div class = "dashboard_item">
+          <h2>{{unique_names}}</h2>
+          <p>Unique Names</p>
+        </div>
+      </div>
 
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Feedback</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for response in responses %}
+            <tr>
+              <td>{{response.name}}</td>
+              <td>{{response.age}}</td>
+              <td>{{response.feedback}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
   </body>
 </html>
