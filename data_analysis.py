@@ -30,8 +30,14 @@ class Response(db.Model):
     __tablename__ = 'Response'
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.current_timestamp())
-    name = db.Column(db.String(30), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
+    year = db.Column(db.String(30), nullable=False)
+    major = db.Column(db.String(30), nullable=False)
+    confidence = db.Column(db.String(30), nullable=False)
+    imposter = db.Column(db.String(30), nullable=False)
+    support = db.Column(db.String(30), nullable=False)
+    #year = db.Column(db.String(30), nullable=False)
+    #name = db.Column(db.String(30), nullable=False)
+    #age = db.Column(db.Integer, nullable=False)
     feedback = db.Column(db.String(500), nullable=False)
     __table_args__ = {'extend_existing': True}  # Add this line
 
@@ -62,10 +68,15 @@ def resources():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    name = request.form["name"]
-    age = request.form["age"]
+    #name = request.form["name"]
+    #age = request.form["age"]
+    year = request.form["year"]
+    major = request.form["major"]
+    confidence = request.form["confidence"]
+    imposter = request.form["imposter"]
+    support = request.form["support"]
     feedback = request.form["feedback"]
-    response = Response(name = name, age = age, feedback = feedback)
+    response = Response(year = year, major = major, confidence = confidence, imposter = imposter, support = support, feedback = feedback)
     db.session.add(response)
     db.session.commit()
 
@@ -80,18 +91,23 @@ def results():
 
     return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age, unique_names=unique_names)
 
-    def __init__(self, id, created, name, age, feeback):
+    def __init__(self, id, created, year, major, confidence, imposter, support, feeback):
         self.id = id
-        self.name = name
+        #self.name = name
         self.created = created
-        self.age = age
+        #self.age = age
         self.feedback = feedback
+        self.year = year
+        self. major = major
+        self.imposter = imposter
+        self.support = support
+        self.confidence = confidence
 
 with app.app_context():
     # Query the Response table and print the results
     responses = Response.query.all()
     for response in responses:
-        cursor.execute("INSERT INTO Response (created, name, age, feedback) VALUES (?, ?, ?, ?)", (response.created, response.name, response.age, response.feedback))
+        cursor.execute("INSERT INTO Response (created, year, major, confidence, imposter, support feedback) VALUES (?, ?, ?, ?)", (response.created, response.year, response.major, response.confidence, response.imposter, response.support, response.feedback))
         #print(response.id, response.created, response.name, response.age, response.feedback)
 
 conn.commit()
