@@ -87,7 +87,7 @@ def submit():
     responses = Response.query.all()
     total_responses = len(responses)
 
-    return render_template("results.html", responses = responses, total_responses = total_response, imposter_plot=graph_survey())
+    return render_template("results.html", responses = responses, total_responses = total_responses, imposter_plot=graph_survey())
 
 @app.route("/results")
 def results():
