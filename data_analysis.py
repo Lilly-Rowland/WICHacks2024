@@ -27,6 +27,7 @@ with app.app_context():
     
 
 class Response(db.Model):
+    print("RUNNIN")
     __tablename__ = 'Response'
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.current_timestamp())
@@ -76,6 +77,7 @@ def submit():
     imposter = request.form.get("imposter", "")
     support = request.form.get("support", "")
     feedback = request.form.get("feedback", "")
+    print(feedback)
     
     response = Response(year = year, major = major, confidence = confidence, imposter = imposter, support = support, feedback = feedback)
     db.session.add(response)
@@ -85,12 +87,16 @@ def submit():
 
 @app.route("/results")
 def results():
+    
     responses = Response.query.all()
     total_responses = len(responses)
+    """
     average_age = round(sum([response.age for response in responses])/total_responses, 1)
     unique_names = len(set([response.name for response in responses]))
 
     return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age, unique_names=unique_names)
+    """
+    return render_template("results.html", responses = responses, total_responses = total_responses)
 
     def __init__(self, id, created, year, major, confidence, imposter, support, feeback):
         self.id = id
@@ -107,9 +113,10 @@ def results():
 with app.app_context():
     # Query the Response table and print the results
     responses = Response.query.all()
+    """
     for response in responses:
-        cursor.execute("INSERT INTO Response (created, year, major, confidence, imposter, support feedback) VALUES (?, ?, ?, ?)", (response.created, response.year, response.major, response.confidence, response.imposter, response.support, response.feedback))
-        #print(response.id, response.created, response.name, response.age, response.feedback)
+        cursor.execute("INSERT INTO Response (created, year, major, confidence, imposter, support, feedback) VALUES (?, ?, ?, ?, ?, ?, ?)", (response.created, response.year, response.major, response.confidence, response.imposter, response.support, response.feedback))
+        #print(response.id, response.created, response.name, response.age, response.feedback)"""
 
 conn.commit()
 conn.close()
