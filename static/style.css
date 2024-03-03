@@ -154,3 +154,16 @@ th, td{
     box-sizing: border-box;
     text-align: center;
   }
+
+  .container {
+    display: flex;
+}
+
+.left {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.right {
+    flex: 1; 
+}
