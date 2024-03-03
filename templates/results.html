@@ -14,5 +14,21 @@
         <h2>{{total_responses}}</h2>
         <p>Total Responses</p>
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Major</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for response in responses %}
+          <tr>
+            <td>{{response.year}}</td>
+            <td>{{response.major}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
   </body>
 </html>

@@ -90,6 +90,10 @@ def results():
     
     responses = Response.query.all()
     total_responses = len(responses)
+
+    
+
+
     """
     average_age = round(sum([response.age for response in responses])/total_responses, 1)
     unique_names = len(set([response.name for response in responses]))
