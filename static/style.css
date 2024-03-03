@@ -1,7 +1,3 @@
-body header {
-    background: url("../assets/backgroundGradient.jpg");
-}
-
 header div {
     display: flex;
     flex-direction: column;
@@ -10,6 +6,7 @@ header div {
     margin:auto;
     font-size: 40px;
     text-align: center;
+    background-image: url("./backgroundGradient.jpg");
 }
 
 #learnMore {
