@@ -1,26 +1,40 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
+
 from degree_by_gender_analysis import graph_deg_by_gender
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///survey_database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-print(app.config['SQLALCHEMY_DATABASE_URI'])
+
+with app.app_context():
+    meta = db.metadata
+    meta.reflect(bind=db.engine)
+    db.reflect()
+    print("heyhey")
+    print(meta.tables.values())
+    for table in meta.tables.values():
+        print("heyhey")
+        print(table.name)
 
 class Response(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(80), nullable = False)
-    age = db.Column(db.Integer, nullable = False)
-    feedback = db.Column(db.Text, nullable = False)
+    __tablename__ = 'Response'
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.current_timestamp())
+    name = db.Column(db.String(30), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    feedback = db.Column(db.String(500), nullable=False)
 
     def __repr__(self):
         return f'<Response {self.name}'
 #app.app_context().push()
 #db.create_all()
 
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
