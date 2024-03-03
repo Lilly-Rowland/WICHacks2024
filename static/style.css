@@ -32,6 +32,7 @@ header div p {
 button {
     border-radius: 15%;
     max-width: 100px;
+    color: #0D1b2a;
 }
 
 nav ul {
@@ -41,6 +42,7 @@ nav ul {
     justify-content: space-evenly;
     list-style: none;
     padding: 10px;
+    margin: 0px;
 }
 
 nav ul li a {
@@ -56,14 +58,17 @@ nav ul li a:hover {
     background-color: #d28997;
 }
 
-footer {
-    background-color: blueviolet;
+footer p{
+    background-color: #9C9AFE;
+    margin: 0px;
+    padding: 10px;
 }
 
 body {
     margin:0px;
     padding:0px;
     font-family: Arial, Helvetica, sans-serif;
+    color:#0D1B2A;
 }
 
 button:hover {
