@@ -74,6 +74,7 @@ main {
     max-height: auto;
     max-width: 50%;
     min-width: 300px;
+    margin:auto;
 }
 
 main div {
