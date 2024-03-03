@@ -1,12 +1,15 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib
 import os
+
+matplotlib.use('Agg')  # Set the backend to Agg
+import matplotlib.pyplot as plt
 
 # Read data from Excel file
 
 def graph_deg_by_gender():
-    df_male = pd.read_excel("assets/Degree_By_Gender_200812.xlsx", sheet_name="Male")
-    df_female = pd.read_excel("assets/Degree_By_Gender_200812.xlsx", sheet_name="Female")
+    df_male = pd.read_excel("assets/Degree_By_Gender.xlsx", sheet_name="Male")
+    df_female = pd.read_excel("assets/Degree_By_Gender.xlsx", sheet_name="Female")
 
     bs_deg = "Attained bachelor's degree"
     data = {'Field of Study': df_female["Field of Study"], 
@@ -37,13 +40,13 @@ def graph_deg_by_gender():
 
     # Show the plot
     plt.legend(title='Total', loc='upper right')
-    plot_file_path = os.path.join(app.static_folder, 'plot.png')
+    plot_file_path = os.path.join('assets/plot.png')
     plt.tight_layout()
     plt.savefig(plot_file_path)
 
-    return render_template('index.html', plot_file='plot.png')
+    return plot_file_path
 
 #plt.show()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    plot_file = graph_deg_by_gender()
