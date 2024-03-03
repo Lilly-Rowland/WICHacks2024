@@ -45,16 +45,16 @@
             <h1>We want to hear from you!</h1>
             <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
             
-            <label for="dropdown">What year are you?</label> 
-            <select year="year"> 
+            <label for="year">What year are you?</label> 
+            <select name="year"> 
                 <option value="1">1</option> 
                 <option value="2">2</option> 
                 <option value="3">3</option> 
                 <option value="4+">4+</option> 
             </select>
             <br>
-            <label for="dropdown">What is your major?</label> 
-            <select major="major"> 
+            <label for="major">What is your major?</label> 
+            <select name="major"> 
                 <option value="Computer Science">Computer Science</option> 
                 <option value="Cybersecurity">Cybersecurity</option> 
                 <option value="Game Design & Development">Game Design & Development</option> 
@@ -65,8 +65,8 @@
                 <option value="Other">Other</option> 
             </select>
             <br>
-            <label for="dropdown">On a scale of 1-10 (1 being the least. 10 being most), how confident are you in your ability to achieve a career in STEM?</label> 
-            <select scale="scale"> 
+            <label for="scale">On a scale of 1-10 (1 being the least. 10 being most), how confident are you in your ability to achieve a career in STEM?</label> 
+            <select name="scale"> 
                 <option value="1">1</option> 
                 <option value="2">2</option> 
                 <option value="3">3</option> 
@@ -79,14 +79,14 @@
                 <option value="10">10</option>    
             </select>
             <br>
-            <label for="dropdown">Have you experienced imposter syndrome in relation to your gender identity and field of study?</label> 
-            <select imposter="imposter"> 
+            <label for="imposter">Have you experienced imposter syndrome in relation to your gender identity and field of study?</label> 
+            <select name="imposter"> 
                 <option value="Yes">Yes</option> 
                 <option value="No">No</option> 
             </select>
             <br>
-            <label for="dropdown">Who do you feel most supported, specifically in relation to your career in STEM?</label> 
-            <select support="support"> 
+            <label for="support">Who do you feel most supported, specifically in relation to your career in STEM?</label> 
+            <select name="support"> 
                 <option value="Classmates">Classmates</option> 
                 <option value="Professors">Professors</option> 
                 <option value="Family">Family</option> 
@@ -101,30 +101,17 @@
             </form>
         </div>
     </main>
-        
         <script>
             function validateForm(){
-                const name = document.forms["surveyForm"]["name"].value
-                const age = document.forms["surveyForm"]["age"].value
                 const feedback = document.forms["surveyForm"]["feedback"].value
 
-                if(name.trim() === "" || age === "" || feedback.trim() === ""){
+                if(feedback.trim() === ""){
                     alert("All fields are required!")
-                    return false;
-                }
-
-                if(name.trim().includes(";") || name.trim().includes("@") || name.trim().includes(":")){
-                    alert("Name cannot include invalid characters")
                     return false;
                 }
 
                 if(feedback.trim().includes("DROP TABLE")) {
                     alert("SQL Injection? Not very feminist of you...")
-                    return false;
-                }
-
-                if(isNaN(age) || age < 0 || age > 120){
-                    alert("Please enter a valid number")
                     return false;
                 }
             }
