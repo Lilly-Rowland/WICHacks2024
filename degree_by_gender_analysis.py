@@ -4,7 +4,7 @@ import os
 
 # Read data from Excel file
 
-def graph_deg_by_gender:
+def graph_deg_by_gender():
     df_male = pd.read_excel("assets/Degree_By_Gender_200812.xlsx", sheet_name="Male")
     df_female = pd.read_excel("assets/Degree_By_Gender_200812.xlsx", sheet_name="Female")
 
