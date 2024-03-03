@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # Read data from survey file
 
-
+print("this is happending")
 def graph_survey():
   
   #Make survey to pull from database
