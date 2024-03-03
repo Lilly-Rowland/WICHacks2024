@@ -27,11 +27,11 @@ class Response(db.Model):
     name = db.Column(db.String(30), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     feedback = db.Column(db.String(500), nullable=False)
+    __table_args__ = {'extend_existing': True}  # Add this line
+
 
     def __repr__(self):
         return f'<Response {self.name}'
-#app.app_context().push()
-#db.create_all()
 
 with app.app_context():
     db.create_all()
@@ -58,9 +58,7 @@ def submit():
     name = request.form["name"]
     age = request.form["age"]
     feedback = request.form["feedback"]
-
     response = Response(name = name, age = age, feedback = feedback)
-    print("fadszjkfdsbhfsavdbhjsvfbhjsfvbhjsafbjh")
     db.session.add(response)
     db.session.commit()
 
