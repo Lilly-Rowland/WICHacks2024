@@ -30,8 +30,51 @@
                 <p>Lorem ipsum dolor sit amet.</p>
                 <img src="blank">
             </div>
+            <h1>Survey time BAYBYYYYYY</h1>
+            <style>
+                form{
+                    width: 300px;
+                    margin: auto;
+                }
+
+                input, textarea{
+                    display: block;
+                    width: 100%;
+                    margin-bottom:10px;
+                }
+            </style>
         </div>
     </main>
+        <h1>surveyyyy yaaaas</h1>
+        <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
+        <label for = "name">Name</label>
+        <input type ="text" name = "name" required>
+
+        <label for="age">Age: </label>
+        <input type="number" name = "age" required>
+
+        <label for="feedback">Feedback: </label>
+        <textarea name = "feedback" required></textarea>
+
+        <input type = "submit" value = "Submit">
+        </form>
+        <script>
+            function validateForm(){
+                const name = document.forms["surveyForm"]["name"].value
+                const age = document.forms["surveyForm"]["age"].value
+                const feedback = document.forms["surveyForm"]["feedback"].value
+
+                if(name.trim() === "" || age === "" || feedback.trim() === ""){
+                    alert("All fields are required!")
+                    return false;
+                }
+
+                if(isNaN(age) || age < 0 || age > 120){
+                    alert("Please enter a valid number")
+                    return false;
+                }
+            }
+        </script>
     <button>↑</button>
     <footer>
         <p>Copyright 2024 Kathryn Eckert, Claire O'Farrell, Lilly Rowland | WicHacks 2024</p>
