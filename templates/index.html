@@ -104,27 +104,15 @@
         
         <script>
             function validateForm(){
-                const name = document.forms["surveyForm"]["name"].value
-                const age = document.forms["surveyForm"]["age"].value
                 const feedback = document.forms["surveyForm"]["feedback"].value
 
-                if(name.trim() === "" || age === "" || feedback.trim() === ""){
+                if(feedback.trim() === ""){
                     alert("All fields are required!")
-                    return false;
-                }
-
-                if(name.trim().includes(";") || name.trim().includes("@") || name.trim().includes(":")){
-                    alert("Name cannot include invalid characters")
                     return false;
                 }
 
                 if(feedback.trim().includes("DROP TABLE")) {
                     alert("SQL Injection? Not very feminist of you...")
-                    return false;
-                }
-
-                if(isNaN(age) || age < 0 || age > 120){
-                    alert("Please enter a valid number")
                     return false;
                 }
             }
