@@ -64,6 +64,11 @@ section div {
     flex-direction: row;
 }
 
+#furtherReading {
+    list-style: none;
+    color:#0D1b2a;
+}
+
 section img {
     max-height: auto;
     max-width: 350px;
