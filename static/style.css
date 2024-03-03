@@ -10,7 +10,8 @@ header div {
 }
 
 header div p {
-    background-color: #706EFD;
+    color: #1B263B;
+    text-decoration-line: underline;
     padding: 10px;
     margin: auto;
 }
@@ -19,25 +20,40 @@ header div p {
     border: none;
     border-radius: 5px;
     margin: auto;
+    background-color: #0D1B2A;
+    color: white;
+    font-size: 25px;
 }
+
+#learnMore:hover {
+    background-color: #1B263B;
+} 
 
 button {
     border-radius: 15%;
     max-width: 100px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 5px;
+nav ul {
+    background-color: #9C9AFE;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 10px;
 }
 
 nav ul li a {
     text-decoration-line: none;
     font-size: 20px;
+    display: inline;
+    margin: 5px;
+    padding: 10px;
+    color:#0D1B2A
 }
-nav {
-    background-color: blueviolet;
-    margin:0px;
+
+nav ul li a:hover {
+    background-color: #d28997;
 }
 
 footer {
@@ -58,4 +74,15 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+form{
+    width: 300px;
+    margin: auto;
+}
+
+input, textarea{
+    display: block;
+    width: 100%;
+    margin-bottom:10px;
 }
