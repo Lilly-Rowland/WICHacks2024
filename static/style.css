@@ -17,23 +17,10 @@ header div p {
 #headText {
     color: #1B263B;
     text-decoration-line: underline;
-    padding: 10px;
+    padding: 40px;
     margin: auto;
     font-size: 40px;
 }
-
-#learnMore {
-    border: none;
-    border-radius: 5px;
-    margin: auto;
-    background-color: #0D1B2A;
-    color: white;
-    font-size: 25px;
-}
-
-#learnMore:hover {
-    background-color: #1B263B;
-} 
 
 button {
     border-radius: 15%;
@@ -62,6 +49,18 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #DDA6B1;
+    color:#0D1b2a;
+    text-decoration-line: none;
+}
+
+.aboutPhoto {
+    max-height: 150px;
+    max-width: auto;
+}
+
+section div {
+    display:flex;
+    flex-direction: row;
 }
 
 main {
@@ -70,10 +69,21 @@ main {
     text-align: center;
 }
 
+#generatedGraph {
+    max-height: auto;
+    max-width: 50%;
+    min-width: 300px;
+    margin:auto;
+}
+
 main div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+main div p {
+    font-size: 20px;
 }
 
 main div h1 {
@@ -143,3 +153,16 @@ th, td{
     box-sizing: border-box;
     text-align: center;
   }
+
+  .container {
+    display: flex;
+}
+
+.left {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+.right {
+    flex: 1; 
+}

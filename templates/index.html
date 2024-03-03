@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Tech Gap</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
@@ -26,13 +28,20 @@
         </ul>
     </nav>
     <main>
-        <div>
             <h1>The Gender Gap in Tech</h1>
-            <div class="twoColumn">
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+                <p>Despite strides made in recent years, women and gender minorities continue to be underrepresented
+                     in STEM disciplines. Which raises the question, why? Is it as simple as a lack of interest? The
+                      answer is no. Many girls do have an interest in STEM but sadly lose confidence in their 
+                      abilities as they get older. This can be due to a variety of factors, including societal 
+                      pressures, lack of self confidence, or the misconception that math is a “boy subject” and 
+                      girls just aren’t as equipped for such a field. All of these contribute to girls' declining 
+                      interest in STEM. Even women who make it through the education process and into the workforce 
+                      are still at risk for abandoning the subject due to similar reasons. But it doesn’t have to be
+                       this way. Through community and education and bringing others up, we can bridge the gender 
+                       gap in STEM. Please explore our website to learn more about the cause and take some time to 
+                       think about what you can do to make a difference in this field, gender minority or ally. 
+                       We’re in this together.</p>
             <h1>Survey time BAYBYYYYYY</h1>
-        </div>
         <div>
             <h1>surveyyyy yaaaas</h1>
             <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
@@ -102,6 +111,16 @@
 
                 if(name.trim() === "" || age === "" || feedback.trim() === ""){
                     alert("All fields are required!")
+                    return false;
+                }
+
+                if(name.trim().includes(";") || name.trim().includes("@") || name.trim().includes(":")){
+                    alert("Name cannot include invalid characters")
+                    return false;
+                }
+
+                if(feedback.trim().includes("DROP TABLE")) {
+                    alert("SQL Injection? Not very feminist of you...")
                     return false;
                 }
 
