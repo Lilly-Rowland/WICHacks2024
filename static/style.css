@@ -2,7 +2,7 @@ header div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 500px;
+    min-height: 400px;
     margin:auto;
     font-size: 40px;
     text-align: center;
@@ -60,6 +60,7 @@ nav ul li a:hover {
 
 main {
     background-color: #A4DCF4;
+    padding: 5px;
 }
 
 main div h1 {
@@ -92,6 +93,7 @@ button:hover {
 form{
     width: 300px;
     margin: auto;
+    padding: 20px;
 }
 
 form input {
