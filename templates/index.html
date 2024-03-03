@@ -32,20 +32,23 @@
             </div>
             <h1>Survey time BAYBYYYYYY</h1>
         </div>
+        <div>
+            <h1>surveyyyy yaaaas</h1>
+            <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
+            <label for = "name">Name</label>
+            <input type ="text" name = "name" required>
+
+            <label for="age">Age: </label>
+            <input type="number" name = "age" required>
+
+            <label for="feedback">Feedback: </label>
+            <textarea name = "feedback" required></textarea>
+
+            <input type = "submit" value = "Submit">
+            </form>
+        </div>
     </main>
-        <h1>surveyyyy yaaaas</h1>
-        <form name = "surveyForm" action="/submit" method="post" onsubmit ="return validateForm()">
-        <label for = "name">Name</label>
-        <input type ="text" name = "name" required>
-
-        <label for="age">Age: </label>
-        <input type="number" name = "age" required>
-
-        <label for="feedback">Feedback: </label>
-        <textarea name = "feedback" required></textarea>
-
-        <input type = "submit" value = "Submit">
-        </form>
+        
         <script>
             function validateForm(){
                 const name = document.forms["surveyForm"]["name"].value

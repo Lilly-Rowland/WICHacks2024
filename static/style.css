@@ -55,7 +55,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #d28997;
+    background-color: #DDA6B1;
+}
+
+main {
+    background-color: #A4DCF4;
+}
+
+main div h1 {
+    margin: 0px;
 }
 
 footer p{
@@ -86,10 +94,13 @@ form{
     margin: auto;
 }
 
+form input {
+    margin: auto;
+}
+
 input, textarea{
     display: block;
     width: 100%;
-    margin-bottom:10px;
 }
 
 th, td{
