@@ -63,6 +63,19 @@ section div {
     flex-direction: row;
 }
 
+section img {
+    max-height: auto;
+    max-width: 350px;
+}
+
+section p a {
+    color:#0D1b2a;
+}
+
+section p a:hover {
+    color:#1B263B;
+}
+
 main {
     background-color: #A4DCF4;
     padding: 5px;
