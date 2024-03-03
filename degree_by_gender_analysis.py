@@ -21,7 +21,6 @@ def graph_deg_by_gender():
     for item in data.get('Field of Study'):
         item.strip("\n")
         item.strip()
-        print(item)
     # Print the output.  
     #print(df)  
     # Set index to 'Field of Study'
@@ -36,17 +35,15 @@ def graph_deg_by_gender():
     plt.title("Percentage of Women in STEM Subjects")
     plt.xlabel("Field of Study", fontweight='bold')
     plt.ylabel("Percentage", fontweight='bold')
+    
     plt.xticks(rotation=45, ha='right')
 
     # Show the plot
-    plt.legend(title='Total', loc='upper right')
-    plot_file_path = os.path.join('assets/plot.png')
+    plt.legend(title='Total', loc='upper left', bbox_to_anchor=(1.05, 1))
+    plot_file_path = os.path.join('static/plot.png')
     plt.tight_layout()
     plt.savefig(plot_file_path)
-
     return plot_file_path
-
-#plt.show()
 
 if __name__ == '__main__':
     plot_file = graph_deg_by_gender()
