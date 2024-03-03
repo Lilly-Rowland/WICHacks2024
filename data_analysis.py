@@ -4,6 +4,7 @@ from flask import request
 import sqlite3
 
 from degree_by_gender_analysis import graph_deg_by_gender
+from survey_analysis import graph_survey
 
 conn = sqlite3.connect('new_database.db')
 cursor = conn.cursor()
@@ -105,7 +106,7 @@ def results():
 
     return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age, unique_names=unique_names)
     """
-    return render_template("results.html", responses = responses, total_responses = total_responses)
+    return render_template("results.html", responses = responses, total_responses = total_responses, imposter_plot=graph_survey())
 
     def __init__(self, id, created, year, major, confidence, imposter, support, feeback):
         self.id = id
