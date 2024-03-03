@@ -70,13 +70,13 @@ def resources():
 def submit():
     #name = request.form["name"]
     #age = request.form["age"]
+    year = str(request.form.get("year", ""))
+    major = request.form.get("major", "")
+    confidence = request.form.get("confidence", "")
+    imposter = request.form.get("imposter", "")
+    support = request.form.get("support", "")
+    feedback = request.form.get("feedback", "")
     
-    year = request.form["year"]
-    major = request.form["major"]
-    confidence = request.form["confidence"]
-    imposter = request.form["imposter"]
-    support = request.form["support"]
-    feedback = request.form["feedback"]
     response = Response(year = year, major = major, confidence = confidence, imposter = imposter, support = support, feedback = feedback)
     db.session.add(response)
     db.session.commit()
