@@ -85,7 +85,10 @@ def submit():
     db.session.add(response)
     db.session.commit()
 
-    return "Thank you your response has been recorded"
+    responses = Response.query.all()
+    total_responses = len(responses)
+
+    return render_template("results.html", responses = responses, total_responses = total_responses)
 
 @app.route("/results")
 def results():
