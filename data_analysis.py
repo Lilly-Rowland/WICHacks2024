@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
+from degree_by_gender_analysis import graph_deg_by_gender
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -27,7 +28,7 @@ def index():
 
 @app.route('/data.html')
 def data():
-    return render_template('data.html', the_title='data')
+    return render_template('data.html', plot=graph_deg_by_gender())
     
 @app.route('/about.html')
 def about():
