@@ -83,6 +83,10 @@ main div {
     justify-content: space-around;
 }
 
+main div p {
+    font-size: 20px;
+}
+
 main div h1 {
     margin: 0px;
 }
