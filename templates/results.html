@@ -19,7 +19,10 @@
           <tr>
             <th>Year</th>
             <th>Major</th>
-            <th>Major</th>
+            <th>Confidence (1-10)</th>
+            <th>Imposter Syndrome?</th>
+            <th>Who do you feel support from?</th>
+            <th>Feedback for us?</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +30,11 @@
           <tr>
             <td>{{response.year}}</td>
             <td>{{response.major}}</td>
+            <td>{{response.confidence}}</td>
+            <td>{{response.imposter}}</td>
+            <td>{{response.support}}</td>
+            <td>{{response.feedback}}</td>
+            
           </tr>
           {% endfor %}
         </tbody>

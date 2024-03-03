@@ -71,9 +71,11 @@ def resources():
 def submit():
     #name = request.form["name"]
     #age = request.form["age"]
+    print(request.form.get("year",""))
+    print(request.form.get("confidence",""))
     year = str(request.form.get("year", ""))
     major = request.form.get("major", "")
-    confidence = request.form.get("confidence", "")
+    confidence = str(request.form.get("confidence", ""))
     imposter = request.form.get("imposter", "")
     support = request.form.get("support", "")
     feedback = request.form.get("feedback", "")
@@ -91,7 +93,7 @@ def results():
     responses = Response.query.all()
     total_responses = len(responses)
 
-    
+
 
 
     """
@@ -109,10 +111,11 @@ def results():
         #self.age = age
         self.feedback = feedback
         self.year = year
+        self.confidence = confidence
         self. major = major
         self.imposter = imposter
         self.support = support
-        self.confidence = confidence
+        
 
 with app.app_context():
     # Query the Response table and print the results
