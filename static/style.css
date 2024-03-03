@@ -58,6 +58,11 @@ nav ul li a:hover {
     max-width: auto;
 }
 
+section div {
+    display:flex;
+    flex-direction: row;
+}
+
 main {
     background-color: #A4DCF4;
     padding: 5px;
