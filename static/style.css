@@ -140,6 +140,12 @@ th, td{
 
   }
 
+  #survey {
+    background-color: #DDA6B1;
+    max-width: 65%;
+    margin:auto;
+  }
+
   .dashboard{
     display: flex;
     justify-content: space-around;
