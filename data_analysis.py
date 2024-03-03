@@ -5,11 +5,11 @@ import sqlite3
 
 from degree_by_gender_analysis import graph_deg_by_gender
 
-conn = sqlite3.connect('survey_database.db')
+conn = sqlite3.connect('new_database.db')
 cursor = conn.cursor()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///survey_database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
