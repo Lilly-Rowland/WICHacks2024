@@ -146,6 +146,10 @@ th, td{
     margin:auto;
   }
 
+  .mainCopy {
+    padding: 10px;
+  }
+
   .dashboard{
     display: flex;
     justify-content: space-around;
