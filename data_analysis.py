@@ -20,10 +20,8 @@ with app.app_context():
     meta = db.metadata
     meta.reflect(bind=db.engine)
     db.reflect()
-    print("heyhey")
     print(meta.tables.values())
     for table in meta.tables.values():
-        print("heyhey")
         print(table.name)
     
 
@@ -89,7 +87,7 @@ def submit():
     responses = Response.query.all()
     total_responses = len(responses)
 
-    return render_template("results.html", responses = responses, total_responses = total_responses)
+    return render_template("results.html", responses = responses, total_responses = total_response, imposter_plot=graph_survey())
 
 @app.route("/results")
 def results():
@@ -106,7 +104,7 @@ def results():
 
     return render_template("results.html", responses= responses, total_responses=total_responses, average_age= average_age, unique_names=unique_names)
     """
-    return render_template("results.html", responses = responses, total_responses = total_responses, imposter_plot=graph_survey())
+    return render_template("results.html", responses = responses, total_responses = total_responses)
 
     def __init__(self, id, created, year, major, confidence, imposter, support, feeback):
         self.id = id
